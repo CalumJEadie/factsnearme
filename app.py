@@ -7,7 +7,8 @@ urls = (
 
 class Article:
     """
-    e.g. GET /articles/51.525603/-0.087558
+    e.g. Old Street Roundabout
+    GET /articles/51.525603/-0.087558
     """
 
     def GET(self, lat, lon):
