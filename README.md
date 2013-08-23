@@ -25,6 +25,12 @@ python app.py
 
 http://factsnearme.herokuapp.com/
 
+### App
+
+http://factsnearme.herokuapp.com/static/index.html
+
+### API
+
 Old Street Roundabout
 
 http://factsnearme.herokuapp.com/articles/51.525603/-0.087558
