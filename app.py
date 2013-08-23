@@ -15,6 +15,10 @@ class Article:
 
     def GET(self, lat, lon):
         articles = model.get_articles(lat, lon)
+
+        # Always return 5 articles to simplify the UI
+        articles = articles[:5]
+
         web.header('Content-Type', 'application/json')
         response = {
             "articles": articles
