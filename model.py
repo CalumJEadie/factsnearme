@@ -1,3 +1,5 @@
+import random
+
 import wikilocation
 from wikipedia import wikipedia
 
@@ -8,8 +10,12 @@ def get_articles(lat, lon):
     :return: list of dicts representing articles
     """
 
-    wikilocation_articles = wikilocation.articles(lat, lon, 1000)
-    wikilocation_articles = wikilocation_articles[:3]
+    landmark_articles = wikilocation.articles(lat, lon, 1000, 5, "landmark")
+    event_articles = wikilocation.articles(lat, lon, 1000, 5, "event")
+
+    # wikilocation_articles = event_articles + landmark_articles
+    # wikilocation_articles = random.sample(wikilocation_articles, 5)
+    wikilocation_articles = _interleave(landmark_articles, event_articles)
 
     articles = []
     for wikilocation_article in wikilocation_articles:
@@ -31,3 +37,6 @@ def get_articles(lat, lon):
         articles.append(article)
 
     return articles
+
+def _interleave(l1, l2):
+    return [val for pair in zip(l1, l2) for val in pair]

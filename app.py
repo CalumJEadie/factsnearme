@@ -16,7 +16,10 @@ class Article:
     def GET(self, lat, lon):
         articles = model.get_articles(lat, lon)
         web.header('Content-Type', 'application/json')
-        return json.dumps(articles)
+        response = {
+            "articles": articles
+        }
+        return json.dumps(response)
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
