@@ -88,7 +88,7 @@ function getLocation()
   }
 function showPosition(position)
   {
-  var url = "http://factsnearme.herokuapp.com/articles/" + position.coords.latitude + "/" + position.coords.longitude;
+  var url = "/articles/" + position.coords.latitude + "/" + position.coords.longitude;
   $.ajax({
       //dataType: 'jsonp', 
       type: 'GET',
