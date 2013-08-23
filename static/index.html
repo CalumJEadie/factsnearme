@@ -43,7 +43,7 @@
 
 <div class="slider">
   <ul>
-    <li>
+    <li id = "item_0">
         <div class = "image">
           <center>
             <a href="#"><img id = "image_1" src="img/1.jpg" style="height:100%;"></a>
@@ -56,21 +56,12 @@
           </div>
           <div id="image_text" style="display:none">
             <p>
-              <span>St Paul's Cathedral, London, is a Church of England cathedral, the seat of the Bishop of London and mother church of the Diocese of London. St Paul's Cathedral, London, is a Church of England cathedral, the seat of the Bishop of London and mother church of the Diocese of London.</span>
+              <span>Text goes here.</span>
             </p>
           </div>
         </div>
     </li>
-    <li>
-      <center>
-        <img src="img/2.jpg" style="height:100%;">
-      </center>    
-    </li>
-    <li>
-      <center>
-        <img src="img/3.jpg" style="height:100%;">
-      </center>    
-    </li>
+    
   </ul>
 </div>
 
@@ -90,18 +81,24 @@ function showPosition(position)
   {
   var url = "http://factsnearme.herokuapp.com/articles/" + position.coords.latitude + "/" + position.coords.longitude;
   $.ajax({
-      //dataType: 'jsonp', 
       type: 'GET',
       url: url, 
       success: function(json) { 
           console.log(json)
-          console.log(json[0].image)
-          $('#image_text_title span').html(json[0].title);
-          $('#image_text span').html(json[0].summary);
-          $("#image_1").attr("src", json[0].image);
+          console.log(json['articles'])
+          var articles = json['articles']
+          for (var i = 0; i < articles.length; i++) {
+              var title = articles[i].title;
+              var summary = articles[i].summary;
+              var image = articles[i].image;
+              var url = articles[i].url;
+              $('#image_text_title span').html(title);
+              $('#image_text span').html(summary);
+              $("#image_1").attr("src", image);
+
+          }
       },
   });
-  //alert("Your latlong is " + position.coords.latitude + ", " + position.coords.longitude);
   }
 
 </script>
