@@ -43,18 +43,95 @@
 
 <div class="slider">
   <ul>
+
     <li id = "item_0">
         <div class = "image">
           <center>
-            <a href="#"><img id = "image_1" src="img/1.jpg" style="height:100%;"></a>
+            <a href="#"><img class = "actual_image" src="img/1.jpg" style="height:100%;"></a>
           </center>
-          <div id="image_text_title" style="display:none">
+          <div class="image_text_title" style="display:none">
             <center>
             <h1><span></span>
               <br /></h1>
             </center>
           </div>
-          <div id="image_text" style="display:none">
+          <div class="image_text" style="display:none">
+            <p>
+              <span>Text goes here.</span>
+            </p>
+          </div>
+        </div>
+    </li>
+
+    <li id = "item_1">
+        <div class = "image">
+          <center>
+            <a href="#"><img class = "actual_image" src="img/1.jpg" style="height:100%;"></a>
+          </center>
+          <div class="image_text_title" style="display:none">
+            <center>
+            <h1><span></span>
+              <br /></h1>
+            </center>
+          </div>
+          <div class="image_text" style="display:none">
+            <p>
+              <span>Text goes here.</span>
+            </p>
+          </div>
+        </div>
+    </li>
+
+    <li id = "item_2">
+        <div class = "image">
+          <center>
+            <a href="#"><img class = "actual_image" src="img/1.jpg" style="height:100%;"></a>
+          </center>
+          <div class="image_text_title" style="display:none">
+            <center>
+            <h1><span></span>
+              <br /></h1>
+            </center>
+          </div>
+          <div class="image_text" style="display:none">
+            <p>
+              <span>Text goes here.</span>
+            </p>
+          </div>
+        </div>
+    </li>
+
+    <li id = "item_3">
+        <div class = "image">
+          <center>
+            <a href="#"><img class = "actual_image" src="img/1.jpg" style="height:100%;"></a>
+          </center>
+          <div class="image_text_title" style="display:none">
+            <center>
+            <h1><span></span>
+              <br /></h1>
+            </center>
+          </div>
+          <div class="image_text" style="display:none">
+            <p>
+              <span>Text goes here.</span>
+            </p>
+          </div>
+        </div>
+    </li>
+
+    <li id = "item_4">
+        <div class = "image">
+          <center>
+            <a href="#"><img class = "actual_image" src="img/1.jpg" style="height:100%;"></a>
+          </center>
+          <div class="image_text_title" style="display:none">
+            <center>
+            <h1><span></span>
+              <br /></h1>
+            </center>
+          </div>
+          <div class="image_text" style="display:none">
             <p>
               <span>Text goes here.</span>
             </p>
@@ -92,9 +169,10 @@ function showPosition(position)
               var summary = articles[i].summary;
               var image = articles[i].image;
               var url = articles[i].url;
-              $('#image_text_title span').html(title);
-              $('#image_text span').html(summary);
-              $("#image_1").attr("src", image);
+              var string = "#item_"+String(i);
+              $(string + ' .image_text_title span').html(title);
+              $(string +' .image_text span').html(summary);
+              $(string +" .actual_image").attr("src", image);
 
           }
       },
@@ -104,24 +182,100 @@ function showPosition(position)
 </script>
 
 <script>
+
     $(document).ready(function(){
-      $('#image_1').click(function() {
-          $('#image_text_title').fadeIn();
-          $('#image_text').fadeOut();
-          $('#image_1').fadeTo(1000, 0.3);
+      $('#image_0 .actual_image').click(function() {
+          $('#image_0 .image_text_title').fadeIn();
+          $('#image_0 .image_text').fadeOut();
+          $('#image_0 .actual_image').fadeTo(1000, 0.3);
       });
 
-      $('#image_text_title').click(function() {
-          $('#image_text_title').fadeOut();
-          $('#image_text').fadeIn();
-          $('#image_1').fadeTo(1000, 0.3);
+      $('#image_0 .image_text_title').click(function() {
+          $('#image_0 .image_text_title').fadeOut();
+          $('#image_0 .image_text').fadeIn();
+          $('#image_0 .actual_image').fadeTo(1000, 0.3);
       });
 
-      $('#image_text').click(function() {
-          $('#image_text').fadeOut();
-          $('#image_1').fadeTo(1000, 1.0);
+      $('#image_0 .image_text').click(function() {
+          $('#image_0 .image_text').fadeOut();
+          $('#image_0 .actual_image').fadeTo(1000, 1.0);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#image_1 .actual_image').click(function() {
+          $('#image_1 .image_text_title').fadeIn();
+          $('#image_1 .image_text').fadeOut();
+          $('#image_1 .actual_image').fadeTo(1000, 0.3);
       });
 
+      $('#image_1 .image_text_title').click(function() {
+          $('#image_1 .image_text_title').fadeOut();
+          $('#image_1 .image_text').fadeIn();
+          $('#image_1 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_1 .image_text').click(function() {
+          $('#image_1 .image_text').fadeOut();
+          $('#image_1 .actual_image').fadeTo(1000, 1.0);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#image_2 .actual_image').click(function() {
+          $('#image_2 .image_text_title').fadeIn();
+          $('#image_2 .image_text').fadeOut();
+          $('#image_2 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_2 .image_text_title').click(function() {
+          $('#image_2 .image_text_title').fadeOut();
+          $('#image_2 .image_text').fadeIn();
+          $('#image_2 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_2 .image_text').click(function() {
+          $('#image_2 .image_text').fadeOut();
+          $('#image_2 .actual_image').fadeTo(1000, 1.0);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#image_3 .actual_image').click(function() {
+          $('#image_3 .image_text_title').fadeIn();
+          $('#image_3 .image_text').fadeOut();
+          $('#image_3 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_3 .image_text_title').click(function() {
+          $('#image_3 .image_text_title').fadeOut();
+          $('#image_3 .image_text').fadeIn();
+          $('#image_3 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_3 .image_text').click(function() {
+          $('#image_3 .image_text').fadeOut();
+          $('#image_3 .actual_image').fadeTo(1000, 1.0);
+      });
+    });
+
+    $(document).ready(function(){
+      $('#image_4 .actual_image').click(function() {
+          $('#image_4 .image_text_title').fadeIn();
+          $('#image_4 .image_text').fadeOut();
+          $('#image_4 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_4 .image_text_title').click(function() {
+          $('#image_4 .image_text_title').fadeOut();
+          $('#image_4 .image_text').fadeIn();
+          $('#image_4 .actual_image').fadeTo(1000, 0.3);
+      });
+
+      $('#image_4 .image_text').click(function() {
+          $('#image_4 .image_text').fadeOut();
+          $('#image_4 .actual_image').fadeTo(1000, 1.0);
+      });
     });
 
 </script>
