@@ -13,12 +13,14 @@ def get_articles(lat, lon):
     # Use really large radius, in case very far away from somewhere.
     # Results are sorted by distance and limited so that works fine.
     radius = 20000 # Upper limit
-    landmark_articles = wikilocation.articles(lat, lon, radius, 2, "landmark")
-    event_articles = wikilocation.articles(lat, lon, radius, 2, "event")
+    landmark_articles = wikilocation.articles(lat, lon, radius, 10, "landmark")
+    # event_articles = wikilocation.articles(lat, lon, radius, 5, "event")
 
     # wikilocation_articles = event_articles + landmark_articles
     # wikilocation_articles = random.sample(wikilocation_articles, 5)
-    wikilocation_articles = _interleave(landmark_articles, event_articles)
+    # wikilocation_articles = _interleave(landmark_articles, event_articles)
+    wikilocation_articles = landmark_articles
+    wikilocation_articles = _remove_lists(wikilocation_articles)
 
     articles = []
     for wikilocation_article in wikilocation_articles:
@@ -41,5 +43,10 @@ def get_articles(lat, lon):
 
     return articles
 
-def _interleave(l1, l2):
-    return [val for pair in zip(l1, l2) for val in pair]
+# def _interleave(l1, l2):
+#     return [val for pair in zip(l1, l2) for val in pair]
+
+def _remove_lists(articles):
+    def not_list(article):
+        return "list" not in article["title"].lower()
+    return filter(not_list, articles)
