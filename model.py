@@ -10,8 +10,11 @@ def get_articles(lat, lon):
     :return: list of dicts representing articles
     """
 
-    landmark_articles = wikilocation.articles(lat, lon, 1000, 5, "landmark")
-    event_articles = wikilocation.articles(lat, lon, 1000, 5, "event")
+    # Use really large radius, in case very far away from somewhere.
+    # Results are sorted by distance and limited so that works fine.
+    radius = 20000 # Upper limit
+    landmark_articles = wikilocation.articles(lat, lon, radius, 2, "landmark")
+    event_articles = wikilocation.articles(lat, lon, radius, 2, "event")
 
     # wikilocation_articles = event_articles + landmark_articles
     # wikilocation_articles = random.sample(wikilocation_articles, 5)
