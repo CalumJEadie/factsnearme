@@ -16,6 +16,11 @@ def get_articles(lat, lon):
     landmark_articles = wikilocation.articles(lat, lon, radius, 10, "landmark")
     # event_articles = wikilocation.articles(lat, lon, radius, 5, "event")
 
+    if len(landmark_articles) == 0:
+        OLD_STREET_ROUNDABOUT = ("51.525603","-0.087558")
+        lat, lon = OLD_STREET_ROUNDABOUT
+        landmark_articles = wikilocation.articles(lat, lon, radius, 10, "landmark")
+
     # wikilocation_articles = event_articles + landmark_articles
     # wikilocation_articles = random.sample(wikilocation_articles, 5)
     # wikilocation_articles = _interleave(landmark_articles, event_articles)
