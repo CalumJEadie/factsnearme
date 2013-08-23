@@ -192,7 +192,7 @@ function getLocation()
   }
 function showPosition(position)
   {
-  //var url = "/articles/" + position.coords.latitude + "/" + position.coords.longitude;
+  var url = "/articles/" + position.coords.latitude + "/" + position.coords.longitude;
   // Cheat - use old street roundabout
   var url = "/articles/51.525603/-0.087558"
 
@@ -203,16 +203,50 @@ function showPosition(position)
           // console.log(json)
           console.log(json['articles'])
           var articles = json['articles']
-          for (var i = 0; i < articles.length; i++) {
-              var title = articles[i].title;
-              var summary = articles[i].summary;
-              var image = articles[i].image;
-              var url = articles[i].url;
-              $("#item_0 .image_text_title span").html(title);
-              $("#item_0 .image_text span").html(summary);
-              $("#item_0 .actual_image").attr("src", image);
+          var title = articles[0].title;
+          var summary = articles[0].summary;
+          var image = articles[0].image;
+          var url = articles[0].url;;
+          $("#item_0 .image_text_title span").html(title);
+          $("#item_0 .image_text span").html(summary);
+          $("#item_0 .actual_image").attr("src", image);
 
-          }
+          var articles = json['articles']
+          var title = articles[1].title;
+          var summary = articles[1].summary;
+          var image = articles[1].image;
+          var url = articles[1].url;;
+          $("#item_1 .image_text_title span").html(title);
+          $("#item_1 .image_text span").html(summary);
+          $("#item_1 .actual_image").attr("src", image);
+
+          var articles = json['articles']
+          var title = articles[2].title;
+          var summary = articles[2].summary;
+          var image = articles[2].image;
+          var url = articles[2].url;;
+          $("#item_2 .image_text_title span").html(title);
+          $("#item_2 .image_text span").html(summary);
+          $("#item_2 .actual_image").attr("src", image);
+
+          var articles = json['articles']
+          var title = articles[3].title;
+          var summary = articles[3].summary;
+          var image = articles[3].image;
+          var url = articles[3].url;;
+          $("#item_3 .image_text_title span").html(title);
+          $("#item_3 .image_text span").html(summary);
+          $("#item_3 .actual_image").attr("src", image);
+
+          var articles = json['articles']
+          var title = articles[4].title;
+          var summary = articles[4].summary;
+          var image = articles[4].image;
+          var url = articles[4].url;;
+          $("#item_4 .image_text_title span").html(title);
+          $("#item_4 .image_text span").html(summary);
+          $("#item_4 .actual_image").attr("src", image);
+          
       },
   });
   }
@@ -222,99 +256,24 @@ function showPosition(position)
 <script>
 
     $(document).ready(function(){
-      $('#image_0 .actual_image').click(function() {
-          $('#image_0 .image_text_title').fadeIn();
-          $('#image_0 .image_text').fadeOut();
-          $('#image_0 .actual_image').fadeTo(1000, 0.3);
+      $('.actual_image').click(function() {
+          $('.image_text_title').fadeIn();
+          $('.image_text').fadeOut();
+          $('.actual_image').fadeTo(1000, 0.3);
       });
 
-      $('#image_0 .image_text_title').click(function() {
-          $('#image_0 .image_text_title').fadeOut();
-          $('#image_0 .image_text').fadeIn();
-          $('#image_0 .actual_image').fadeTo(1000, 0.3);
+      $('.image_text_title').click(function() {
+          $('.image_text_title').fadeOut();
+          $('.image_text').fadeIn();
+          $('.actual_image').fadeTo(1000, 0.3);
       });
 
-      $('#image_0 .image_text').click(function() {
-          $('#image_0 .image_text').fadeOut();
-          $('#image_0 .actual_image').fadeTo(1000, 1.0);
+      $('.image_text').click(function() {
+          $('.image_text').fadeOut();
+          $('.actual_image').fadeTo(1000, 1.0);
       });
     });
 
-    $(document).ready(function(){
-      $('#image_1 .actual_image').click(function() {
-          $('#image_1 .image_text_title').fadeIn();
-          $('#image_1 .image_text').fadeOut();
-          $('#image_1 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_1 .image_text_title').click(function() {
-          $('#image_1 .image_text_title').fadeOut();
-          $('#image_1 .image_text').fadeIn();
-          $('#image_1 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_1 .image_text').click(function() {
-          $('#image_1 .image_text').fadeOut();
-          $('#image_1 .actual_image').fadeTo(1000, 1.0);
-      });
-    });
-
-    $(document).ready(function(){
-      $('#image_2 .actual_image').click(function() {
-          $('#image_2 .image_text_title').fadeIn();
-          $('#image_2 .image_text').fadeOut();
-          $('#image_2 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_2 .image_text_title').click(function() {
-          $('#image_2 .image_text_title').fadeOut();
-          $('#image_2 .image_text').fadeIn();
-          $('#image_2 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_2 .image_text').click(function() {
-          $('#image_2 .image_text').fadeOut();
-          $('#image_2 .actual_image').fadeTo(1000, 1.0);
-      });
-    });
-
-    $(document).ready(function(){
-      $('#image_3 .actual_image').click(function() {
-          $('#image_3 .image_text_title').fadeIn();
-          $('#image_3 .image_text').fadeOut();
-          $('#image_3 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_3 .image_text_title').click(function() {
-          $('#image_3 .image_text_title').fadeOut();
-          $('#image_3 .image_text').fadeIn();
-          $('#image_3 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_3 .image_text').click(function() {
-          $('#image_3 .image_text').fadeOut();
-          $('#image_3 .actual_image').fadeTo(1000, 1.0);
-      });
-    });
-
-    $(document).ready(function(){
-      $('#image_4 .actual_image').click(function() {
-          $('#image_4 .image_text_title').fadeIn();
-          $('#image_4 .image_text').fadeOut();
-          $('#image_4 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_4 .image_text_title').click(function() {
-          $('#image_4 .image_text_title').fadeOut();
-          $('#image_4 .image_text').fadeIn();
-          $('#image_4 .actual_image').fadeTo(1000, 0.3);
-      });
-
-      $('#image_4 .image_text').click(function() {
-          $('#image_4 .image_text').fadeOut();
-          $('#image_4 .actual_image').fadeTo(1000, 1.0);
-      });
-    });
 
 </script>
 
