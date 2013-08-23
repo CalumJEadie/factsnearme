@@ -192,7 +192,10 @@ function getLocation()
   }
 function showPosition(position)
   {
-  var url = "/articles/" + position.coords.latitude + "/" + position.coords.longitude;
+  //var url = "/articles/" + position.coords.latitude + "/" + position.coords.longitude;
+  // Cheat - use old street roundabout
+  var url = "/articles/51.525603/-0.087558"
+
   $.ajax({
       type: 'GET',
       url: url, 
@@ -205,10 +208,9 @@ function showPosition(position)
               var summary = articles[i].summary;
               var image = articles[i].image;
               var url = articles[i].url;
-              var string = "#item_"+String(i);
-              $(string + ' .image_text_title span').html(title);
-              $(string +' .image_text span').html(summary);
-              $(string +" .actual_image").attr("src", image);
+              $("#item_0 .image_text_title span").html(title);
+              $("#item_0 .image_text span").html(summary);
+              $("#item_0 .actual_image").attr("src", image);
 
           }
       },
